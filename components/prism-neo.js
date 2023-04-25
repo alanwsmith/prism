@@ -55,11 +55,11 @@ Prism.languages.neo = {
 				inside: {
 					'markers': {
 						pattern: /\*/,
-						alias: 'keyword'
+						alias: 'tag'
 					},
 					'content': {
 						pattern: /[^*]+/,
-						alias: 'bold'
+						//alias: 'bold'
 					}
 				}
 			},
@@ -89,13 +89,13 @@ Prism.languages.neo = {
 					},
 					'end_marker': {
 						pattern: /\*/,
-						alias: 'keyword'
-					}
-				}
-			},
+						alias: 'tag'
+					},
 			'a_pipe': {
 				pattern: /\|/,
 				alias: 'keyword'
+			},
+				}
 			},
 		}
 	},
