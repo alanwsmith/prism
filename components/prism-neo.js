@@ -34,16 +34,6 @@ Prism.languages.neo = {
 				// lookbehind: true,
 				alias: 'attr-value'
 			}
-
-
-			// 'bold': /^>>\s+/,
-			// 	'attr-key': {
-			// 			pattern: /([^:]+:)/,
-			// 			inside: {
-			// 				pattern: /[^:]+/,
-			// 				alias: 'attr-name'
-			// 			}
-			//  		}
 		}
 	},
 
@@ -79,8 +69,6 @@ Prism.languages.neo = {
 								pattern: /\:/,
 								alias: 'punctuation'
 							},
-
-
 						}
 					},
 					'd': {
@@ -91,10 +79,10 @@ Prism.languages.neo = {
 						pattern: /\*/,
 						alias: 'tag'
 					},
-			'a_pipe': {
-				pattern: /\|/,
-				alias: 'keyword'
-			},
+					'a_pipe': {
+						pattern: /\|/,
+						alias: 'keyword'
+					},
 				}
 			},
 		}
@@ -139,7 +127,6 @@ Prism.languages.neo = {
 									}
 								}
 							}
-
 						}
 					},
 					'not_pipe_command': {
