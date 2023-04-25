@@ -55,7 +55,7 @@ Prism.languages.neo = {
 				inside: {
 					'markers': {
 						pattern: /\*/,
-						alias: 'tag'
+						alias: 'keyword'
 					},
 					'content': {
 						pattern: /[^*]+/,
@@ -63,23 +63,40 @@ Prism.languages.neo = {
 					}
 				}
 			},
+
+
 			'end_stuff': {
 				pattern: /^([^*]*\*)/,
 				inside: {
-					'values': {
-						pattern: /[^|*]+/,
-						alias: 'comment'
+					'a': {
+						pattern: /([^*:|]+\:)/,
+						inside: {
+							'b': {
+								pattern: /[^*:|]+/,
+								alias: 'attr-name'
+							},
+							'c': {
+								pattern: /\:/,
+								alias: 'punctuation'
+							},
+
+
+						}
 					},
-					'a_pipe': {
-						pattern: /\|/,
-						alias: 'tag'
+					'd': {
+						pattern: /[^*:|]+/,
+						alias: 'attr-value'
 					},
 					'end_marker': {
 						pattern: /\*/,
-						alias: 'tag'
+						alias: 'keyword'
 					}
 				}
-			}
+			},
+			'a_pipe': {
+				pattern: /\|/,
+				alias: 'keyword'
+			},
 		}
 	},
 
@@ -114,7 +131,7 @@ Prism.languages.neo = {
 								inside: {
 									'a': {
 										pattern: /\:/,
-										alias: 'punctuation'
+										alias: 'keyword'
 									},
 									'b': {
 										pattern: /.*/,
