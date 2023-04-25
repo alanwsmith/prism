@@ -13,12 +13,44 @@ Prism.languages.neo = {
 			'bold': /.*/,
 		}
 	},
-	'strong1': {
-		pattern: /\*.*?\*\*/,
-		alias: 'keyword'
+
+	'strong_shorthand': {
+		pattern: /(\*[^*]+\*[^*]*\*)/,
+		inside: {
+			'start_stuff': {
+				pattern: /^(\*[^*]+\*)/,
+				inside: {
+					'markers': {
+						pattern: /\*/,
+						alias: 'keyword'
+					},
+					'content': {
+						pattern: /[^*]+/,
+						alias: 'char'
+					}
+				}
+			},
+			'end_stuff': {
+				pattern: /^([^*]*\*)/,
+				inside: {
+					'values': {
+						pattern: /[^|*]+/,
+						alias: 'comment'
+					},
+					'a_pipe': {
+						pattern: /\|/,
+						alias: 'keyword'
+					},
+					'end_marker': {
+						pattern: /\*/,
+						alias: 'keyword'
+					}
+				}
+			}
+		}
 	},
 
-	'strong3': {
+	'inline_tag': {
 		pattern: /(<<.*?\|.*?>>)/,
 		inside: {
 			'start_tokens': {
