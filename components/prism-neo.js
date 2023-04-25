@@ -1,16 +1,49 @@
 Prism.languages.neo = {
 
 	'section-header': {
-		pattern: /(x-> \w+)/,
+		pattern: /(-> \w+)/,
 		inside: {
-			'bold': /^->/,
-			'bold': /^.*$/
+			'bold': /^->\s+/,
+			'tag': /^.*$/m
 		}
 	},
+
 	'attribute': {
-		pattern: /(x>>\s+\w+:.*)/,
+		pattern: /(>>\s+\w+:.*)/,
 		inside: {
-			'bold': /.*/,
+			'start_stuff': {
+				pattern: /^(>>)/,
+				alias: 'bold'
+			},
+			'attr_open': {
+				pattern: /([^:]+:)/,
+				inside: {
+					'attr_key': {
+						pattern: /[^:]+/,
+						alias: 'attr-name'
+					},
+					'separator': {
+						pattern: /\:/,
+						alias: 'punctuation'
+					}
+				}
+			},
+
+			'end_stuff': {
+				pattern: /.*/,
+				// lookbehind: true,
+				alias: 'attr-value'
+			}
+
+
+			// 'bold': /^>>\s+/,
+			// 	'attr-key': {
+			// 			pattern: /([^:]+:)/,
+			// 			inside: {
+			// 				pattern: /[^:]+/,
+			// 				alias: 'attr-name'
+			// 			}
+			//  		}
 		}
 	},
 
@@ -22,7 +55,7 @@ Prism.languages.neo = {
 				inside: {
 					'markers': {
 						pattern: /\*/,
-						alias: 'keyword'
+						alias: 'tag'
 					},
 					'content': {
 						pattern: /[^*]+/,
@@ -39,11 +72,11 @@ Prism.languages.neo = {
 					},
 					'a_pipe': {
 						pattern: /\|/,
-						alias: 'keyword'
+						alias: 'tag'
 					},
 					'end_marker': {
 						pattern: /\*/,
-						alias: 'keyword'
+						alias: 'tag'
 					}
 				}
 			}
@@ -59,7 +92,7 @@ Prism.languages.neo = {
 			},
 			'content': {
 				pattern: /^[^|]+/,
-				alias: 'bold'
+				// alias: 'bold'
 			},
 			'commands': {
 				pattern: /^(\|[^|>]+)/,
@@ -68,9 +101,33 @@ Prism.languages.neo = {
 						pattern: /^\|/,
 						alias: 'keyword'
 					},
-					'not_pipe': {
+					'not_pipe_attr': {
+						pattern: /^([^:]+\:[^|>]+)/,
+						inside: {
+							'front': {
+								pattern: /^[^:]+/,
+								alias: 'tag'
+							}
+							,
+							'separator': {
+								pattern: /^(\:.*)/,
+								inside: {
+									'a': {
+										pattern: /\:/,
+										alias: 'punctuation'
+									},
+									'b': {
+										pattern: /.*/,
+										alias: 'attr-value'
+									}
+								}
+							}
+
+						}
+					},
+					'not_pipe_command': {
 						pattern: /^[^|>]+/,
-						alias: 'comment'
+						alias: 'tag'
 					}
 				}
 			},
