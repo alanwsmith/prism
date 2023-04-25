@@ -969,6 +969,14 @@
 			"title": "NASM",
 			"owner": "rbmj"
 		},
+		"neo": {
+			"title": "Neopolitan",
+			"owner": "alanwsmith"
+		},
+		"colors": {
+			"title": "Color Examples",
+			"owner": "alanwsmith"
+		},
 		"neon": {
 			"title": "NEON",
 			"owner": "nette"

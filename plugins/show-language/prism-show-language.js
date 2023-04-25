@@ -178,6 +178,8 @@
 		"naniscript": "Naninovel Script",
 		"nani": "Naninovel Script",
 		"nasm": "NASM",
+		"neo": "Neopolitan",
+		"colors": "Color Examples",
 		"neon": "NEON",
 		"nginx": "nginx",
 		"nsis": "NSIS",
