@@ -26,7 +26,7 @@ Prism.languages.neo = {
 					},
 					'content': {
 						pattern: /[^*]+/,
-						alias: 'char'
+						alias: 'bold'
 					}
 				}
 			},
@@ -59,7 +59,7 @@ Prism.languages.neo = {
 			},
 			'content': {
 				pattern: /^[^|]+/,
-				alias: 'char'
+				alias: 'bold'
 			},
 			'commands': {
 				pattern: /^(\|[^|>]+)/,
